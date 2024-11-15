@@ -1,22 +1,32 @@
 import { Injectable } from '@nestjs/common';
+import { CreateTodo } from './dto/todo.dto';
 
 @Injectable()
 export class TodoService {
+  private todoList = [];
+
+  createTodo(data: CreateTodo) {
+    const item = {
+      id: new Date().getTime,
+      ...data,
+      status: `todo`,
+    };
+    this.todoList.push(item);
+    console.log(this.todoList);
+    return {
+      message: 'Todo created',
+      item,
+    };
+  }
+
   getTodoList() {
     return {
       message: 'Todo list',
-      data: [
-        {
-          id: 1,
-          title: 'Create a new project',
-          description: 'Create a new project using NestJS',
-        },
-        {
-          id: 2,
-          title: 'Create a new module',
-          description: 'Create a new module in the project',
-        },
-      ],
+      data: this.todoList,
     };
   }
+
+  updateTodo() {}
+
+  deleteTodo() {}
 }
