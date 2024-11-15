@@ -14,14 +14,14 @@ export class TodoService {
     this.todoList.push(item);
     console.log(this.todoList);
     return {
-      message: 'Todo created',
+      message: 'success',
       item,
     };
   }
 
   getTodoList() {
     return {
-      message: 'Todo list',
+      message: 'success',
       data: this.todoList,
     };
   }
