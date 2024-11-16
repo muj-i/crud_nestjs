@@ -36,17 +36,14 @@ export class TodoController {
         'ID should not be included in the request body.',
       );
     }
-    const numericId = Number(id); // Convert to number
-    console.log('Received numeric id:', numericId);
-    return await this.todoService.updateTodo(numericId, reqBody);
+    return await this.todoService.updateTodo(id, reqBody);
   }
 
   @Delete('/delete-todo/:id')
   deleteTodo(
     @Param('id') id: string, // Route params are strings
   ) {
-    const numericId = Number(id); // Convert to number
-    return this.todoService.deleteTodo(numericId);
+    return this.todoService.deleteTodo(id);
   }
 
   @Delete('/delete-all-todo')
