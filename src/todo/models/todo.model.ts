@@ -11,7 +11,7 @@ export class Todo {
   @Prop({ required: true, trim: true })
   description: string;
 
-  @Prop({ required: true, trim: true, lowercase: true, default: 'todo' })
+  @Prop({ trim: true, lowercase: true, default: 'todo' })
   status: string;
 }
 
